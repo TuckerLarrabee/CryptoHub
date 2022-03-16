@@ -232,6 +232,7 @@
 
   .card{
     margin-bottom: 1.5%;
+    border: 0 !important;
   }
 
   /* .card-img-top {

@@ -1,0 +1,154 @@
+{{!-- <ol class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ol> --}}
+
+<div id='parent' class="container-fluid h-100">
+  <div id="parentRow" class="row h-100">
+
+    <div id="leftContainer" class="col-2">
+        
+          <form id="cryptoForm">
+            <div id="searchDiv">
+                <label>
+                  <h5 class="center">Search for a Cryptocurreny:</h5>
+                </label>
+                <input
+                  name="cryptoName"
+                  id="cryptoName"
+                  placeholder="XRP"
+                  class="input"
+                />
+                  <button type="submit" id="searchBtn">
+                    Search
+                  </button>
+            </div>
+          </form>
+
+      <div>
+        <h5>Cryptocurrencies: </h5>
+        <div id="searchedContainer" class="align-middle">
+            <div id="mostRecentSearchedContainer" class="is-small">
+              <!-- Container for the crypto just searched -->
+            </div>
+            <div id="CryptoSearchedContainer" class="is-medium">
+              {{!-- <button class="searchedButtons swipe">Bitcoin</button> <br>
+              <button class="searchedButtons swipe">Litecoin</button> --}}
+              <!-- currencies already searched for will be displayed here as buttons that, when clicked, will bring up the desired information -->
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="middleContainer" class="col-8">
+      <div id="currencyData" class="container-fluid h-60">
+        <div class="row">
+          <div id="middleRow" class="col-9">
+            <table class="table table-bordered" >
+              <thead>
+                <tr>
+                  <th scope="col">UUID</th>
+                  <th scope="col">DOGE Price</th>
+                  <th scope="col">Rank</th>
+                  <th scope="col">Tier</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Symbol</th>
+                </tr>
+              </thead>
+              <tbody id="data">
+              <div id=
+              <div style="height:560px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; 
+                              text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F;padding:1px;
+                              padding: 0px; margin: 0px; width: 100%;">
+                <div style="height:540px; padding:0px; margin:0px; width: 100%;">
+                  <iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=280&pref_coin_id=1505" width="100%"
+                    height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0"
+                    style="border:0;margin:0;padding:0;line-height:14px;">
+                  </iframe>
+                </div>
+                <div
+                  style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+                  <a href="https://coinlib.io" target="_blank"
+                    style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by
+                  Coinlib
+                </div>
+              </div>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="col-3">
+            <h4 id="price">Price Data</h4>
+              <ul>
+                <li>Market Cap</li> <br>
+                <li>Price Change (24 hr)</li> <br>
+                <li>Other Data...</li> <br>
+                <li>Other Data...</li> <br>
+                <li>Other Data...</li> <br>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="postContainer" class="container-fluid">
+        <h4>Discussion: </h4>
+        <div class="row" id="postRow">
+          <ol class="post-list">
+            {{#each posts as |post|}}
+            <li>
+              {{> post-info post }}
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div id="rightContainer" class="col-2">
+      <h4>Related News: </h4>   
+        <div id="newsContainer" class="h-80">      
+            <div class="articleDiv">
+              <a class="articleTitle" href="">2 Top Cryptocurrencies To Buy and Hold Forever</a>
+              <div>
+                <span>THE MOTLEY FOOL</span>
+                <span> • </span>
+                <span>3/09/2022</span>
+              </div>
+            </div>
+            <div class="articleDiv">
+              <a class="articleTitle" href="">The First Crypto War May Lead to Lasting Peace</a>
+              <div>
+                <span>COINDESK</span>
+                <span> • </span>
+                <span>3/09/2022</span>
+              </div>
+            </div>
+            <div class="articleDiv">
+              <a class="articleTitle" href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+              <div>
+                <span>Lorem Lorem.</span>
+                <span> • </span>
+                <span>3/09/2022</span>
+              </div>
+            </div>
+            <div class="articleDiv">
+              <a class="articleTitle" href=""> Voluptatem tenetur assumenda laborum fugiat, iusto repellat similique!</a>
+              <div>
+                <span>Lorem, ipsum dolor.</span>
+                <span> • </span>
+                <span>3/09/2022</span>
+              </div>
+            </div>
+        </div> 
+          
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascript/loadButtons.js"></script>
