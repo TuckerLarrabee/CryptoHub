@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   console.log("======================");
   const apiKey = "f48fe9f6872f4171b08493ed8a0bc110";
 
-  let url = `https://newsapi.org/v2/everything?q=crypto&apiKey=${apiKey}`;
+  let url = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${apiKey}`;
 
   axios.get(url)
     .then(({ data }) => {
