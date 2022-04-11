@@ -6,106 +6,145 @@
   {{/each}}
 </ol> --}}
 
-<div id='parent' class="container-fluid">
+<div id="parent" class="container-fluid">
   <div id="parentRow" class="row">
 
     <div id="leftContainer" class="col-12 col-lg-3 col-xl-2">
-        
-          <form id="cryptoForm">
-            <div id="searchDiv">
-                <label>
-                  <h5 class="center">Search for a Cryptocurreny:</h5>
-                </label>
-                <input
-                  name="cryptoName"
-                  id="cryptoName"
-                  placeholder="Litecoin"
-                  class="input"
-                />
-                  <button type="submit" id="searchBtn">
-                    Search
-                  </button>
-            </div>
-          </form>  
 
-          {{!-- {{#if loggedIn}}    --}}
-          <div>
-            <h5>Cryptocurrencies: </h5>
-              <div id="searchedContainer" class="align-middle">
-                <div id="mostRecentSearchedContainer" class="is-small">
-                  <!-- Container for the crypto just searched -->
-              </div>
-              <div id="CryptoSearchedContainer" class="is-medium">
-                {{!-- <button class="searchedButtons swipe">Bitcoin</button> <br>
-                <button class="searchedButtons swipe">Litecoin</button> --}}
-                <!-- currencies already searched for will be displayed here as buttons that, when clicked, will bring up the desired information -->
-              </div>
-            </div>
-            {{!-- {{/if}} --}}
+      <form id="cryptoForm">
+        <div id="searchDiv">
+          <label>
+            <h5 class="center">Search for a Cryptocurreny:</h5>
+          </label>
+          <input
+            name="cryptoName"
+            id="cryptoName"
+            placeholder="Litecoin"
+            class="input"
+          />
+          <button type="submit" id="searchBtn">
+            Search
+          </button>
+        </div>
+      </form>
+
+      {{!-- {{#if loggedIn}}    --}}
+      <div>
+        <h5>Cryptocurrencies: </h5>
+        <div id="searchedContainer" class="align-middle">
+          <div id="mostRecentSearchedContainer" class="is-small">
+            <!-- Container for the crypto just searched -->
+          </div>
+          <div id="CryptoSearchedContainer" class="is-medium">
+            <!-- currencies already searched for will be displayed here as buttons that, when clicked, will bring up the desired information -->
+          </div>
+        </div>
+        {{!-- {{/if}} --}}
       </div>
     </div>
 
     <div id="middleContainer" class="col-12 col-lg-9 col-xl-8">
       <div id="currencyData" class="container-fluid">
         <div class="row">
-          <div id="middleRow" class="col-12 d-flex flex-wrap justify-content-around align-content-start">
+          <div
+            id="middleRow"
+            class="col-12 d-flex flex-wrap justify-content-around align-content-start"
+          >
             <div class="card" style="width: 18rem;">
-              <img src="/images/bitcoin.png" class="card-img-top" alt="bitcoin logo">
+              <img
+                src="/images/bitcoin.png"
+                class="card-img-top"
+                alt="bitcoin logo"
+              />
               <div class="card-body">
                 <h5 class="card-title">Bitcoin</h5>
-                <a class="priceDetails" href="/specific-coin/1">View price details</a>
+                <a class="priceDetails" href="/specific-coin/1">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='1' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="1" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
             <div class="card" style="width: 18rem;">
-              <img src="/images/litecoin.jpg" class="card-img-top" alt="litecoin logo">
+              <img
+                src="/images/litecoin.jpg"
+                class="card-img-top"
+                alt="litecoin logo"
+              />
               <div class="card-body">
                 <h5 class="card-title">Litecoin</h5>
-                <a class="priceDetails" href="/specific-coin/2">View price details</a>
+                <a class="priceDetails" href="/specific-coin/2">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='2' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="2" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
             <div class="card" style="width: 18rem;">
-              <img src="/images/dogecoin2.png" class="card-img-top" alt="dogecoin logo">
+              <img
+                src="/images/dogecoin2.png"
+                class="card-img-top"
+                alt="dogecoin logo"
+              />
               <div class="card-body">
                 <h5 class="card-title">Dogecoin</h5>
-                <a class="priceDetails" href='/specific-coin/3'>View price details</a>
+                <a class="priceDetails" href="/specific-coin/3">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='3' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="3" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
             <div class="card" style="width: 18rem;">
-              <img src="/images/eth.svg" class="card-img-top" alt="ethereum logo">
+              <img
+                src="/images/eth.svg"
+                class="card-img-top"
+                alt="ethereum logo"
+              />
               <div class="card-body">
                 <h5 class="card-title">Ethereum</h5>
-                <a class="priceDetails" href="/specific-coin/4">View price details</a>
+                <a class="priceDetails" href="/specific-coin/4">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='4' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="4" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
             <div class="card" style="width: 18rem;">
-              <img src="/images/tether.png" class="card-img-top" alt="tether cryptocurrency logo">
+              <img
+                src="/images/tether.png"
+                class="card-img-top"
+                alt="tether cryptocurrency logo"
+              />
               <div class="card-body">
                 <h5 class="card-title">Tether</h5>
-                <a class="priceDetails" href="/specific-coin/5">View price details</a>
+                <a class="priceDetails" href="/specific-coin/5">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='5' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="5" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
             <div class="card" style="width: 18rem;">
-              <img src="/images/xrp.png" class="card-img-top" alt="xrp logo">
+              <img src="/images/xrp.png" class="card-img-top" alt="xrp logo" />
               <div class="card-body">
                 <h5 class="card-title">XRP</h5>
-                <a class="priceDetails" href="/specific-coin/6">View price details</a>
+                <a class="priceDetails" href="/specific-coin/6">View price
+                  details</a>
                 {{#if loggedIn}}
-                <div id='6' class="heart"><button class="heartBtn">♡</button></div>
+                  <div id="6" class="heart"><button
+                      class="heartBtn"
+                    >♡</button></div>
                 {{/if}}
               </div>
             </div>
@@ -115,26 +154,18 @@
     </div>
 
     <div id="rightContainer" class="col-12 col-lg-12 col-xl-2">
-      <h4>Crypto News: </h4>   
-        <div id="newsContainer" class="h-80">      
-              <form action="" class="search">
-                <input
-                  name="cryptoName"
-                  id="cryptoName"
-                  placeholder="DogeCoin"
-                  class="newsInput"
-                />
-              <input type= "submit" id="searchBtn" value="Get Crypto News">
-              <div class="container">
-              <ul class="news-list list-unstyled"></ul>
-
-  </div>
-            
-        </div> 
+      <h4>Crypto News: </h4>
+      <div id="newsContainer" class="h-80">
+        <ul class="news-list list-unstyled">
+          {{#each news}}
+            <li class="news-url">
+              <a href="{{url}}" target="_blank">{{title}}</a>
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
 <script src="/javascript/favorites.js"></script>
-<script src="/javascript/news.js"></script>

@@ -1,101 +1,107 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const router = require("express").Router();
+const sequelize = require("../config/connection");
+const { Post, User, Comment } = require("../models");
+const axios = require('axios');
 
 // get all posts for homepage
-router.get('/', (req, res) => {
-  console.log('======================');
-  Post.findAll({
-    attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //     include: {
-    //       model: User,
-    //       attributes: ['username']
-    //     }
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
-  })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      console.log(req.session)
-      res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
+router.get("/", (req, res) => {
+  console.log("======================");
+  const apiKey = "f48fe9f6872f4171b08493ed8a0bc110";
+
+  let url = `https://newsapi.org/v2/everything?q=crypto&apiKey=${apiKey}`;
+
+  axios.get(url)
+    .then(({ data }) => {
+      
+      const news = [];
+
+      for(let i = 0; i < 13; i++) {
+        news.push(data.articles[i])
+      }
+
+    Post.findAll({
+      attributes: [
+        "id",
+        "post_url",
+        "title",
+        "created_at"
+      ],
     })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      .then((dbPostData) => {
+        const posts = dbPostData.map((post) => post.get({ plain: true }));
+        console.log(req.session);
+        res.render("homepage", {
+          posts,
+          loggedIn: req.session.loggedIn,
+          news
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 });
 
 // get single post
-router.get('/post/:id', (req, res) => {
+router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
     attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      "id",
+      "post_url",
+      "title",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username"],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ["username"],
+      },
+    ],
   })
-    .then(dbPostData => {
+    .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('single-post', {
+      res.render("single-post", {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;
