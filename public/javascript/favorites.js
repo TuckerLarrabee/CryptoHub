@@ -13,11 +13,17 @@ let newButtonNavStorage = function specificCoinNav (e) {
     }
 
 function favoriteHandler () {
+    $("#highlight").click(function() {
+        // this is only targeting first card - need to fix this!
+        $(this).toggleClass('fa-heart-o');
+        $(this).toggleClass('fa-heart');
+      });
+
     let coinFavorite = (this.closest('.card-body'))
     let coinText = coinFavorite.children[0].innerText;
-
-    id = coinFavorite.children[2].id;
-    // let id 
+    console.log(coinFavorite, coinText)
+    id = coinFavorite.children[1].id;
+    console.log(id)
 
     localStorage.setItem(JSON.stringify({coinText, id}), JSON.stringify({coinText, id}));
 
@@ -56,9 +62,10 @@ function loadButtons () {
 
 
 let heart = document.querySelectorAll('.card-body');
-console.log(heart[2].children)
+console.log(heart[0].children)
 heart.forEach(heart => {
-    heart.children[2].addEventListener('click', favoriteHandler)
+    console.log(heart.children[1].children[1])
+    heart.children[1].children[1].addEventListener('click', favoriteHandler)
 })
 // heart.addEventListener('click', favoriteHandler);
 

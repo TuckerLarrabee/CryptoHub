@@ -232,7 +232,7 @@
 
   .card{
     margin-bottom: 1.5%;
-    margin-top: 5%;
+    /* margin-top: 5%; */
     /* border: 0 !important; */
   }
 
@@ -247,6 +247,16 @@
   position: relative;
 }
 
+#highlight {
+  color: red;
+  font-size: 2rem;
+}
+
+.heartShapedBox {
+  display: flex;
+  justify-content: space-between;
+}
+/* 
 .heartBtn {
   font-size: 48px;
   float: right;
@@ -262,6 +272,8 @@
 .heartBtn:hover {
   background-color: rgb(230, 53, 53);
 }
+ */
+
 
 /* .priceDetails{
   position: absolute;
